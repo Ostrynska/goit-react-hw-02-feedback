@@ -3,6 +3,8 @@ import Statistics from "./Statistics";
 import FeedbackOptions from './FeedbackOptions'
 import Section from './Section'
 import Notification from "./Notification";
+import Box from "./Box";
+
 
 export class App extends Component
 {
@@ -12,10 +14,10 @@ export class App extends Component
         bad: 0,
     }
 
-    handleChange = (event) =>
+    handlerChange = (e) =>
     {
-      const { name } = event.target
-      this.setState((prevState) => ({ [name]: prevState[name] + 1 }))   
+      const { name } = e.target;
+      this.setState((prevState) => ({ [name]: prevState[name] + 1 })); 
     }
 
     countTotalFeedback = () =>
@@ -36,12 +38,20 @@ export class App extends Component
       const total = this.countTotalFeedback();
       const positivePercentage = this.countPositiveFeedbackPercentage();
       return (
-          <>
+        <Box
+          bg='background'
+          color='text'
+          display='grid'
+          alignItems='center'
+          fontSize={14}
+          pt={4}
+          pb={4}
+          as='main'>
             <Section title="Cafe Expresso"></Section>
             <Section title="Please leave feedback"> 
               <FeedbackOptions
                 options={Object.keys(this.state)}
-                onLeaveFeedback={this.handleChange}
+                onLeaveFeedback={this.handlerChange}
               >
                 </FeedbackOptions>
             </Section>
@@ -57,7 +67,7 @@ export class App extends Component
               positivePercentage={positivePercentage} />
           }
           </Section>
-          </>
+          </Box>
         )
     }
 }
