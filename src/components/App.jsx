@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 import Statistics from "./Statistics";
 import { FeedbackOptions } from './FeedbackOptions'
-import { Sections } from './Sections'
+import { Section } from './Section'
 import { Notification } from "./Notification";
 
-export class App extends React.Component
+export class App extends Component
 {
     state = {
         good: 0,
@@ -37,15 +37,15 @@ export class App extends React.Component
       const positivePercentage = this.countPositiveFeedbackPercentage();
       return (
           <>
-            <Sections title="Cafe Expresso"></Sections>
-            <Sections title="Please leave feedback"> 
+            <Section title="Cafe Expresso"></Section>
+            <Section title="Please leave feedback"> 
               <FeedbackOptions
                 options={Object.keys(this.state)}
                 onLeaveFeedback={this.handleChange}
               >
                 </FeedbackOptions>
-            </Sections>
-            <Sections title="Statistics"> 
+            </Section>
+            <Section title="Statistics"> 
               {this.countTotalFeedback() === 0
                 ?
                 <Notification message="There is no feedback"></Notification>
@@ -56,7 +56,7 @@ export class App extends React.Component
               total={total}
               positivePercentage={positivePercentage} />
           }
-          </Sections>
+          </Section>
           </>
         )
     }
