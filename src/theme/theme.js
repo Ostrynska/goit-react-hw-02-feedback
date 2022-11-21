@@ -61,5 +61,3 @@ export const theme = {
     inlineFlex: 'inline-flex',
   },
 };
-
-export default theme;
