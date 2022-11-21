@@ -6,5 +6,3 @@ import { color, space, layout, flexbox, grid, background, border, position, font
 export const Box = styled('div')(
     color, space, layout, flexbox, grid, background, border, position, fontSize
 )
-
-export default Box
