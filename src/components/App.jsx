@@ -3,7 +3,7 @@ import Statistics from "./Statistics";
 import FeedbackOptions from './FeedbackOptions'
 import Section from './Section'
 import Notification from "./Notification";
-import Box from "./Box";
+import { Box } from "./Box";
 
 
 export class App extends Component
@@ -39,15 +39,12 @@ export class App extends Component
       const positivePercentage = this.countPositiveFeedbackPercentage();
       return (
         <Box
-          bg='background'
-          color='text'
-          display='grid'
-          alignItems='center'
+          backgroundColor='primary'
+          height='100vh'
           fontSize={14}
-          pt={4}
-          pb={4}
+          pt='80px'
           as='main'>
-            <Section title="Cafe Expresso"></Section>
+          <h1 style={{textAlign:'center', textTransform:'uppercase', fontSize:'64px', color:'#1C4931'}}>Cafe Expresso</h1>
             <Section title="Please leave feedback"> 
               <FeedbackOptions
                 options={Object.keys(this.state)}
